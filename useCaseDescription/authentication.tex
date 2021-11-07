@@ -1,0 +1,122 @@
+\subsection{Authenticaition}
+
+\textbf{Use-case diagram}
+    \begin{center}
+        \begin{figure}[!h]
+            \begin{center}
+                \includegraphics[scale=0.4]{Images/authentication.png} 
+            \end{center} 
+            \vspace{1cm}
+            \caption{Authentication use case diagram}
+        \end{figure}    
+    \end{center}
+
+\newpage
+\begin{enumerate}
+    \item Đăng nhập
+\begin{center}{\color{black}}
+
+    \begin{tabular}{|p{5cm}|p{7cm}|} \hline
+    
+        \textbf{Use Case Id} & \textbf{}  \\ \hline
+        Tên usecase &  Đăng nhập\\ \hline
+        Tiền điều kiện & 
+            \begin{enumerate}[1.]                
+                \item Tài khoản người dùng đã được tạo sẵn.
+                \item Tài khoản người dùng đã được phân quyền.
+                \item Thiết bị của người dùng đã được kết nối internet khi thực hiện đăng nhập
+            \end{enumerate}\\ \hline
+        
+        Hậu điều kiện &
+            \begin{enumerate}[1.]                
+                \item Người dùng đăng nhập ứng dụng thành công.
+                \item Hệ thống ghi nhận hoạt động đăng nhập thành công
+            \end{enumerate}\\ \hline
+        
+        Luồng điều kiện chính &  
+            \begin{enumerate}[1.]
+                \item Người dùng truy cập ứng dụng .
+                \item Người dùng chọn phương thức đăng nhập bằng tài khoản 
+                \item  Người dùng nhập tài khoản  và chọn lệnh đăng nhập
+                \item Hệ thống xác thực thông tin đăng nhập thành công và cho phép người dùng truy cập ứng dụng
+                \item Xảy ra lỗi, yêu cầu khác hàng thực hiện lại từ bước 2
+                \item Hệ thống ghi nhận hoạt động đăng nhập thành công.
+            \end{enumerate}\\
+        \hline
+        Ngoại lệ &
+            \begin{enumerate}[1.]                
+                \item Người dùng thoát trang web
+                \item Người dùng huỷ phương thức đăng nhập
+            \end{enumerate}\\ \hline
+        
+        Luồng điều kiện phụ & \\ \hline
+      
+    \end{tabular}
+\end{center}
+\newpage
+\item Đăng kí
+\begin{center}{\color{black}}
+
+    \begin{tabular}{|p{5cm}|p{7cm}|} \hline
+    
+        \textbf{Use Case Id} & \textbf{}  \\ \hline
+        Tên usecase &  Đăng kí\\ \hline
+        Tiền điều kiện & Người dùng phải có số điện thoại. \\ \hline
+        
+        Hậu điều kiện &
+            \begin{enumerate}[1.]                
+                \item Người dùng đăng kí ứng dụng thành công
+                \item Hệ thống ghi nhận hoạt động đăng kí thành công
+            \end{enumerate}\\ \hline
+        
+        Luồng điều kiện chính &  
+            \begin{enumerate}[1.]
+                \item Người dùng truy cập ứng dụng .
+                \item Người dùng chọn phương thức đăng kí tài khoản
+                \item  Người dùng nhập các thông tin username, password, số điện thoại.
+                \item Hệ thống xác thực thông tin đăng kí thành công và cho phép người dùng truy cập ứng dụng
+                \item Xảy ra lỗi, yêu cầu khác hàng thực hiện lại từ bước 2
+                \item Hệ thống ghi nhận hoạt động đăng nhập thành công.
+            \end{enumerate}\\
+        \hline
+        Ngoại lệ &
+            \begin{enumerate}[1.]                
+                \item  Người dùng thoát trang web
+                \item Người dùng huỷ phương thức đăng kí
+            \end{enumerate}\\ \hline
+       
+        Luồng điều kiện phụ & \\ \hline
+      
+    \end{tabular}
+\end{center}
+\newpage
+\item Đăng xuất
+\begin{center}{\color{black}}
+
+    \begin{tabular}{|p{5cm}|p{7cm}|} \hline
+    
+        \textbf{Use Case Id} & \textbf{}  \\ \hline
+        Tên usecase &  Đăng xuất\\ \hline
+        Tiền điều kiện & Người dùng phải đăng nhập vào hệ thống. \\ \hline
+        
+        Hậu điều kiện &  Người dùng đăng xuất ứng dụng thành công\\ \hline
+        Luồng điều kiện chính &  
+            \begin{enumerate}[1.]
+                \item Người dùng chọn phương thức đăng xuất tài khoản
+                \item Hệ thống xác thực thông tin đăng xuất thành công và cho phép người dùng đăng xuất ứng dụng
+                \item Xảy ra lỗi, yêu cầu khác hàng thực hiện lại từ bước 1
+                \item Hệ thống ghi nhận hoạt động đăng xuất thành công.
+            \end{enumerate}\\
+        \hline
+        Ngoại lệ &
+            \begin{enumerate}[1.]                
+                \item  Người dùng thoát trang web
+                \item Người dùng huỷ phương thức đăng kí
+            \end{enumerate}\\ \hline
+        
+        Luồng điều kiện phụ & \\ \hline
+      
+    \end{tabular}
+
+\end{center}
+\end{enumerate}

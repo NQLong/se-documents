@@ -1,0 +1,411 @@
+\documentclass[a4paper]{article}
+\usepackage{vntex}
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide,amssymb,epsfig,latexsym,array,hhline,fancyhdr}
+
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{multicol,longtable,amscd}
+\usepackage{diagbox}%Make diagonal lines in tables
+\usepackage{booktabs}
+\usepackage{alltt}
+\usepackage[framemethod=tikz]{mdframed}% For highlighting paragraph backgrounds
+\usepackage{caption,subcaption}
+\usepackage{vhistory}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage[unicode]{hyperref}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+\newtheorem{theorem}{{\bf Định lý}}
+\newtheorem{property}{{\bf Tính chất}}
+\newtheorem{proposition}{{\bf Mệnh đề}}
+\newtheorem{corollary}[proposition]{{\bf Hệ quả}}
+\newtheorem{lemma}[proposition]{{\bf Bổ đề}}
+
+
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{Images/hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Trường Đại Học Bách Khoa Tp.Hồ Chí Minh}\\
+		\textbf{\bf \ttfamily Khoa Khoa Học và Kỹ Thuật Máy Tính}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Công nghệ phần mềm - Niên khóa 2021-2022}
+\fancyfoot[R]{\scriptsize \ttfamily Trang {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+%make in-line maths symbols blue to read/check easily
+
+\sloppy
+\captionsetup[figure]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=-9pt}
+%space remove between caption, figure, and text
+\captionsetup[table]{labelfont={small,bf},textfont={small,it},belowskip=-1pt,aboveskip=7pt}
+%space remove between caption, table, and text
+
+%\floatplacement{figure}{H}%forced here float placement automatically for figures
+%\floatplacement{table}{H}%forced here float placement automatically for table
+%the following settings (11 lines) are to remove white space before or after the figures and tables
+%\setcounter{topnumber}{2}
+%\setcounter{bottomnumber}{2}
+%\setcounter{totalnumber}{4}
+%\renewcommand{\topfraction}{0.85}
+%\renewcommand{\bottomfraction}{0.85}
+%\renewcommand{\textfraction}{0.15}
+%\renewcommand{\floatpagefraction}{0.8}
+%\renewcommand{\textfraction}{0.1}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{10pt plus 2pt minus 2pt}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+ĐẠI HỌC QUỐC GIA THÀNH PHỐ HỒ CHÍ MINH \\
+TRƯỜNG ĐẠI HỌC BÁCH KHOA \\
+KHOA KHOA HỌC - KỸ THUẬT MÁY TÍNH 
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{Images/hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{l}{\textbf{{\Large CÔNG NGHỆ PHẦN MỀM}}}\\
+~~\\
+\hline
+\\
+\textbf{{\Huge RESTAURANT POS}} \\
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{1.5cm}
+
+\begin{table}[h]
+\begin{tabular}{rrll}
+\hspace{5 cm} & GVHD: & Lê Đình Thuận & \\
+& SV thực hiên: & Nguyễn Quang Long & 1812917 \\
+& & Nguyễn Duy Khánh & 1913743 \\
+& & Nguyễn Tấn Lộc & 1914022 \\
+& & Võ Văn Đăng Khoa & 1910276 \\
+&& Lê Huy Ngọ & 2011679
+\end{tabular}
+\end{table}
+\vspace{1.5cm}
+\begin{center}
+{\footnotesize Hồ Chí Minh, Tháng 9/2021}
+\end{center}
+\end{titlepage}
+
+
+%\thispagestyle{empty}
+
+\newpage
+\begin{center}
+
+\begin{versionhistory}
+  \vhEntry{1.0}{-.9.2021}{Nguyễn Quang Long}{Đề xuất, user stories, Functional Requirement, Usecase description: tìm món,thêm món vào giỏ hàng, đặt món, chỉnh sửa đơn hàng}
+  \vhEntry{1.0}{-.9.2021}{Nguyễn Tấn Lộc}{Non - functional Requirement, Usecase description: đăng nhập, đăng xuất, đăng ký}
+  \vhEntry{1.0}{-.9.2021}{Lê Huy Ngọ}{Functional Requirement,Non - functional Requirement,Usecase description:Thanh Toán}
+  \vhEntry{1.0}{-.9.2021}{Võ Văn Đăng Khoa}{Functional Requirement, Usecase description: đặt bàn, chỉnh sửa đơn đặt bàn}
+  \vhEntry{1.0}{-.9.2021}{Nguyễn Duy Khánh}{Functional Requirement, Usecase description: Manage resterrant}
+  \vhEntry{2.0}{30.9.2021}{Nguyễn Quang Long}{Sequence Diagram + Activity diagram + Class Diagram: thêm món vào giỏ hàng, đặt món, phê duyệt đơn hàng, Entity class Diagram}
+  \vhEntry{2.0}{3.10.2021}{Nguyễn Tấn Lộc}{Sequence Diagram + Activity diagram + Class Diagram: đăng nhập, đăng xuất, đăng ký}
+  \vhEntry{2.0}{3.10.2021}{Lê Huy Ngọ}{Sequence Diagram + Activity diagram + Class Diagram:Thanh toán}
+  \vhEntry{2.0}{3.10.2021}{Võ Văn Đăng Khoa}{Sequence Diagram + Activity diagram + Class Diagram: đặt bàn}
+  \vhEntry{2.0}{3.10.2021}{Nguyễn Duy Khánh}{Sequence Diagram + Activity diagram + Class Diagram: Quản lí nhà hàng}
+\end{versionhistory}
+
+\end{center}
+
+\newpage
+\tableofcontents
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Giới thiệu}
+
+\subsection{Đề tài}
+
+Point of sale (POS) or point of purchase is the time and place where a retail transaction is completed. At the point of sale, the merchant calculates the amount owed by the customer, indicates that amount, may prepare an invoice for the customer, and indicates the options for the customer to make payment. In restaurant business, POS systems often include table reservation, ordering food, alerts, billing, credit card processing and customer management. Even before the COVID-19 crisis, POS systems had gained traction across the industry. During the coronavirus pandemic, restaurants face greater peril than ever. Such systems are expected to increase business intelligence, reduce wasted effort and opportunity to scale to a large business. Moreover, the systems should support take-away options Our customers have multiple restaurants and have a need to develop a responsive web-based POS system that implement the current business flow as described in Figure 1. (The current POS terminal can be replaced in this web-based solution).
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.23]{Images/Screenshot from 2021-09-15 23-45-02.png}
+    \end{center}
+    \caption{Customer-drawing workflow}
+\end{figure}
+
+The restaurant owners express several special demands for the new system:
+
+\begin{itemize}
+    \item The system should allow non-direct contact between Clerks and Customers.
+    \item The system should be implemented using Web technology and QR code, so customers will not have to install apps.
+    \item The system should be usable from a mobile device, a tablet device or a normal computer/ laptop.
+    \item The system should be extendable to use in multiple restaurants in the future.
+    \item The current transactions is about 300 orders per day.
+\end{itemize}
+\pagebreak
+
+\subsection{Đề xuất}
+
+Với tình trạng dịch bệnh COVID hiện nay, các thành phố đang chuẩn bị mở cưa trờ lại. Cần nhanh chóng có một biện pháp an toàn để cho các cửa hàng thực phẩm trở kinh doanh trở lại mà hạn chế sự tiếp xúc trực tiếp hết mức có thể. Hệ thống POS cho các nhà hàng sẽ là một ứng dụng lý tưởng giúp cho các nhà hàng, quán ăn lớn và trung có thể mau chóng mở cưa kinh doanh trở lại. Ứng dụng sẽ cho phép một khách tự đặt món và thành toán không cần thông qua nhân viên. Nhân viên nhà hàng sẽ tiếp nhận đơn hàng thông qua ứng dụng. Ngoài ra hệ thống sẽ hỗ trợ gửi thông báo bằng FCM hoặc email cho các khách hàng một số thông báo quan trọng.
+
+\subsection{User stories}
+
+Các actor của hệ thống bao gồm: \textit{Customer, Clerk, Chef, Owner, Admin}
+\begin{itemize}
+    \item Là một Customer, tôi muốn có được điều hướng đến trang đặt món của nhà hàng bằng cách quét mã QR.
+    \item Là một Customer, tôi muốn đăng nhập vào hệ thống bằng Oauth hoặc với Username + Password.
+    \item Là một Customer, tôi muốn được cung cấp các phương thức thanh toán bằng tài khoản ngân hàng nội địa, visa, paypal, momo, ... 
+    \item Là một Customer, tôi muốn có thể thêm, xóa, chỉnh sửa các món ăn với số lượng vào giỏ hàng.
+    \item là một Customer, tôi muốn có thể chọn các món trong giỏ hàng và tiến hành đặt đơn hàng.
+    \item Là một Customer, tôi muốn có thể mở yêu cầu đặt bàn.
+    \item Là một Customer, tôi muốn có thể chỉnh sửa, xóa yêu cầu đặt bàn.
+    \item Là một Clerk, tôi muốn có thể phê duyệt hoặc từ chối yêu cầu đặt bàn.
+    \item Là một Clerk, tôi muốn có thể thêm, xóa, chỉnh sửa các món ăn với số lượng vào giỏ hàng.
+    \item Là một Chef, tôi muốn có thể chuyển trạng thái đơn hàng từ PENDING sang PREPARE hoặc REFUSE.
+    \item Là một Clerk, tôi muốn có thể chọn các món trong giỏ hàng và tiến hành đặt đơn hàng cho một khách hàng.
+    \item Là một Clerk, tôi muốn có thể chỉnh sưa đơn hàng nếu khách hàng yêu cầu trực tiếp.
+    \item Là một Chef, tôi muốn có thể chuyển trạng thái đơn hàng từ REQUEST sang PENDING hoặc REFUSE, từ PENDING sang REFUSE.
+    \item Là một Clerk hoặc Chef, tôi muốn có thể gửi thông báo cho Customer nếu có vấn đề về đơn hàng.
+    \item Là một Clerk hoặc Chef, tôi có thể ẩn một món ăn trên menu.
+    \item Là một Owners, tôi muốn có tất cá chức năng của Clerk, Chef.
+    \item Là một OWners, tôi có thể chỉnh sửa thông tin nhà hàng của mình.
+    \item Là một Owners, tôi muốn có thể quản lý các bàn có trong nhà hàng của mình.
+    \item Là một Owners, tôi có thể xem các thống kê về nhà hàng (doanh thu, doanh số bán ra, so sánh các thông số các món ăn theo các thàng, quý , năm,...).
+    \item Là một Owners, tôi có thể tạo ra các menu và lưu lại.
+    \item Là một Owners, tôi có thể chọn một trong các menu tồn tại để làm menu cho nhà hàng.
+\end{itemize}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Requirement elicitation}
+
+% \subsection{Task 1.1}
+
+% \begin{itemize}
+%     \item The context of this project: Hiện thực hệ thống POS của nhà hàng.
+%     \item Stakeholders:
+%     \begin{enumerate}
+%         \item Chủ nhà hàng, người yêu cầu tạo ra hệ thống và đặt ra các yêu cầu cơ bản cho hệ thống.
+%         \item Quản lí nhà hàng, người quản lí nhân viên của nhà hàng.
+%         \item Kế toán, người quản lí tài chính của nhà hàng, thống kê doanh thu, lợi nhuận, thu chi của nhà hàng.
+%         \item Nhân viên, người phục vụ cho nhà hàng, hướng dẫn khách hàng sử dụng hệ thống.
+%         \item Đầu bếp, người tạo ra các món ăn cho nhà hàng.
+%         \item Khách hàng, người trực tiếp sử dụng hệ thống để đặt bàn, đặt món ăn, ... 
+%     \end{enumerate}
+%     \item Expected to be done:
+%     \begin{itemize}
+%         \item Hệ thống được hoàn thành trước ngày 15/11/2021.
+%         \item Hệ thống đáp ứng được các requirements đặt ra.
+%         \item Hệ thống có giao diện đẹp, hiệu năng ổn định.
+%     \end{itemize}
+%     \item The scope of the project: 
+%     \begin{itemize}
+%         \item Hệ thống có tính năng đặt bàn, đặt món ăn và thanh toán.
+%         \item Hệ thống cho phép nhân viên và khách hàng có thể tương tác không trực tiếp với nhau.
+%         \item Hệ thống sử dụng công nghệ Web và cho phép quét mã QR để khách hàng không cần phải cài đặt app.
+%         \item Hệ thống có thể sử dụng trên điện thoại, tablet và máy tính/laptop.
+%         \item Hệ thống có thể mở rộng để dùng cho nhiều nhà hàng trong tương lai.
+%         \item Hệ thống đáp ứng được khoảng 300 đơn hàng trên ngày.
+%     \end{itemize}
+% \end{itemize}
+
+% \subsection{Task 1.2}
+
+\subsection{Functional requirements}
+
+\textbf{Customer requirements}
+\begin{itemize}
+
+    \item Hệ thống có thể tạo ra các QR code cho các bàn ăn với nội dung là đường dẫn tới trang đặt món của nhà hàng.
+    \item Khách hàng có thể dùng các phần mềm bên thứ 3 để quét các mã qr để lấy đường dẫn tới menu đặt món của nhà hàng.
+    \item Khách hàng có thể thanh toán thông qua các api của momo, paypal, ...
+    \item Khách hàng có thể tạo ra các đơn hàng.
+    \item Khách hàng có thể chỉnh sửa, xóa các đơn hàng chưa được \textit{Clerk} phê chuẩn.
+    \item Khách hàng có thể phản hồi, khiếu nại về chất lượng phục vu, đánh giá nhà hàng trên thang điểm 5 sao
+    \item Nhận các voucher giảm giá của nhà hàng.
+    \item Thông báo cho khách hàng còn chỗ hay không khi khách mở app.
+    
+\end{itemize}
+\textbf{Clerk requirements}
+\begin{itemize}
+    \item Nhận thực đơn từ khách hàng.
+    \item Hệ thống nhận diện khách hàng quen thuộc, nhớ thực đơn yêu thích.
+    \item Tạo bảng danh sách các món được ưu thích.
+    \item Clerks có thể quản lý các đơn hàng, (hủy, chỉnh sửa, phê duyệt).
+    \item Quản lí các khoản nợ của khách.
+    \item Giao tiếp được với khách hàng.
+    \item Thông báo món làm xong.
+\end{itemize}
+\textbf{Chef requirements}
+\begin{itemize}
+    \item Hiển thị thực đơn nấu ăn.
+    \item Các yêu cầu về món ăn của từng thực khách.
+    \item Đánh dấu món đã xong cho quản lí.
+\end{itemize}
+ %\includegraphics[scale=0.6]{Images/SE_UML-Functional requirements.drawio (1).png}
+
+\subsection{Non-functional requirements}
+\begin{itemize}
+    \item Hệ thống có khả năng xử lí 300 đơn hàng trong 1 ngày.
+    \item Hệ thống hoạt động ổn định, có khả năng mở rộng, bảo trì và phục hồi
+    \item Hệ thống được vận hành trên web và hoạt động 24/7.
+\end{itemize}
+
+\newpage
+\section{Use-case}
+\subsection{System use-case digram}
+
+\begin{figure}[!h]
+    \begin{center}
+        \includegraphics[scale=0.33]{Images/system-use-case.png}
+    \end{center}
+    \caption{System use-case digram}
+\end{figure}
+
+%Chú thích:
+
+% \subsection{System use-case diagram}
+% \begin{center}
+%     \begin{figure}[!h]
+%         \begin{center}
+%             \includegraphics[scale=0.5]{Images/Functional requirements.drawio.png} 
+%         \end{center}
+%         \vspace{1cm}
+%         \caption{Authentication use case diagram}
+%     \end{figure}
+% \end{center}
+
+% \subsubsection{Use-case diagram for the whole system}
+
+\newpage
+\input{useCaseDescription/authentication}
+\input{useCaseDescription/order}
+\newpage
+\input{useCaseDescription/payment}
+\newpage
+\input{useCaseDescription/reservation}
+\input{useCaseDescription/management}
+
+\newpage
+\section{Activity Diagram}
+\input{ActivityDiagram/authentication}
+\input{ActivityDiagram/booking}
+\input{ActivityDiagram/order}
+\input{ActivityDiagram/manageRestaurant}
+
+\newpage
+\section{Sequence Diagram}
+\input{SequenceDiagram/authentication}
+\input{SequenceDiagram/order}
+\newpage
+\input{SequenceDiagram/booking}
+\input{SequenceDiagram/Payment-sequence}
+\input{SequenceDiagram/manageRestaurant}
+
+
+\newpage
+\section{Class Diagram}
+
+Vì sẽ khó để quan sát khi chỉ có một class diagram chung cho hệ thống  nên nhóm đã quyết định sẽ dùng một entity class digram chung cho hệ thống và các chức năng sẽ có class diagram riêng.
+
+\input{ClassDiagram/entity}
+\input{ClassDiagram/order}
+\input{ClassDiagram/authentication}
+\input{ClassDiagram/booking_class}
+\input{ClassDiagram/payment_class}
+\input{ClassDiagram/managementRestaurant}
+\input{task3/task3.1}
+\input{task3/Component}
+
+\section{Version Control System}
+
+Nhóm sử dụng github làm version control system cho dự án.
+
+Sé có 1 repo chính là se-2021. Repo sẽ gồm 3 sub-modules là se-backend, se-frontend và se-document.
+
+Repositoies:
+\begin{itemize}
+    \item se-2021: \url{https://github.com/NQLong/se-2021.git}
+    \item se-backend: \url{https://github.com/NQLong/se-backend.git}
+    \item se-frontend: \url{https://github.com/NQLong/se-frontend.git}
+    \item se-document: \url{https://github.com/NQLong/se-documents.git}
+    
+\end{itemize}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% \newpage
+% \addcontentsline{toc}{section}{Tài liệu}
+% \begin{thebibliography}{99999}
+% % \bibitem[Dal]{Dal}{Dalgaard, P.} {\em Introductory Statistics with R.}  Springer 2008.
+
+% % \bibitem[K-Z]{K-Z}{Kenett, R. S. and Zacks, S.}
+% % {\em Modern Industrial Statistics: with applications in R, MINITAB and JMP,} 2nd ed.,  John Wiley and Sons, 2014.
+
+% % \bibitem[Ker]{Ker}{Kerns, G. J.}
+% % {\em Introduction to Probability and Statistics Using R,} 2nd ed., CRC 2015.
+% \end{thebibliography}
+\end{document}
+
